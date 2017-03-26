@@ -1,0 +1,21 @@
+<div class="container">
+     <h2>Custom Validation Form</h2>
+     <form #userForm="ngForm" (ngSumbit)="onSubmit(userForm.value)">
+         <div class="form-group">
+              <label>Name</label>
+              <input type="text" #nameRef="ngModel" required class="form-control" name="name" ngModel>
+              <div [hidden]="nameRef.valid||nameRef.pristine" class="alert alert-danger">
+                    Please enter a name
+              </div>
+                
+         </div>
+         <div class="form-group">
+             <label>Password</label>
+             <input type="password" #pwdRef="ngModel" required class="form-control" name="password" ngModel>
+              <div [hidden]="pwdRef.valid||pwdRef.pristine" class="alert alert-danger">
+                    Please enter the password
+              </div>
+         </div>
+         <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+</div>
